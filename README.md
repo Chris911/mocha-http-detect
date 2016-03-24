@@ -1,4 +1,4 @@
-# mocha-live-detect
+# mocha-live-detect [![Build Status](https://travis-ci.org/Chris911/mocha-live-detect.svg?branch=master)](https://travis-ci.org/Chris911/mocha-live-detect)
 
 Detect live HTTP requests in your test suite.
 
