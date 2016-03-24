@@ -1,5 +1,5 @@
 {
-  "name": "mocha-live-detect",
+  "name": "mocha-http-detect",
   "version": "0.1.1",
   "description": "Live request detection for Mocha",
   "main": "dist/index.js",
@@ -16,14 +16,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Chris911/mocha-live-detect.git"
+    "url": "git+https://github.com/Chris911/mocha-http-detect.git"
   },
   "author": "Christophe Naud-Dulude",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Chris911/mocha-live-detect/issues"
+    "url": "https://github.com/Chris911/mocha-http-detect/issues"
   },
-  "homepage": "https://github.com/Chris911/mocha-live-detect",
+  "homepage": "https://github.com/Chris911/mocha-http-detect",
   "dependencies": {
     "chalk": "1.1.1"
   },
