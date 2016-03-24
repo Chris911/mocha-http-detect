@@ -6,7 +6,8 @@
   "scripts": {
     "compile": "babel -d dist src",
     "lint": "eslint src",
-    "test": "npm run lint && mocha --compilers js:babel-core/register --recursive"
+    "test": "npm run lint && mocha --compilers js:babel-core/register --recursive",
+    "test:ci": "npm run compile && npm test"
   },
   "keywords": [
     "mocha",
@@ -33,6 +34,7 @@
     "chai": "^3.5.0",
     "eslint": "2.3.0",
     "eslint-config-airbnb": "6.1.0",
+    "eslint-plugin-react": "^4.2.3",
     "mocha": "^2.4.5",
     "request-promise": "^2.0.1"
   }
