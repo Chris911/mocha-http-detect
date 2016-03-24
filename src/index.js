@@ -7,6 +7,11 @@ import Mocha from 'mocha';
 const hostnames = {};
 let testRequests = [];
 
+/**
+ * Returns indent for pretty printing.
+ * @param  {integer} size - indent size in spaces
+ * @return {string} the indent string
+ */
 function indent(size) {
   let indentStr = '';
   let _size = size;
@@ -17,6 +22,9 @@ function indent(size) {
   return indentStr;
 }
 
+/**
+ * Prints full requests URL seen in test.
+ */
 function printTestRequest() {
   console.log(chalk.yellow(`${indent(6)} Live requests: `));
 
@@ -25,6 +33,9 @@ function printTestRequest() {
   });
 }
 
+/**
+ * Print requested hostnames summary.
+ */
 function printHostnames() {
   console.log(chalk.yellow.bold(`${indent(2)} Hostnames requested: `));
 
@@ -35,10 +46,14 @@ function printHostnames() {
 
   for (const key in hostnames) {
     if (!hostnames[key]) return;
-    console.log(chalk.yellow(`${indent(4)}${key}: ${hostnames[key]}''`));
+    console.log(chalk.yellow(`${indent(4)}${key}: ${hostnames[key]}`));
   }
 }
 
+/**
+ * Patch mocha to display recording requests during individual tests and at
+ * the end of the test suite.
+ */
 function patchMocha() {
   const _testRun = Mocha.Test.prototype.run;
 
@@ -67,6 +82,12 @@ function patchMocha() {
   };
 }
 
+/**
+ * Get the hostname from an HTTP options object.
+ * Supports multiple types of options.
+ * @param  {object} httpOptions
+ * @return {string} the hostname or "Unknown" if not found.
+ */
 function getHostname(httpOptions) {
   if (httpOptions.uri && httpOptions.uri.hostname) {
     return httpOptions.uri.hostname;
@@ -78,6 +99,12 @@ function getHostname(httpOptions) {
   return 'Unknown';
 }
 
+/**
+ * Get the href from an HTTP options objet.
+ * Supports multiple types of options.
+ * @param  {object} httpOptions
+ * @return {string} the hostname or "Unknown" if not found.
+ */
 function getHref(httpOptions) {
   if (httpOptions.uri && httpOptions.uri.href) {
     return httpOptions.uri.href;
@@ -89,6 +116,14 @@ function getHref(httpOptions) {
   return 'Unknown';
 }
 
+/**
+ * Patch Node's HTTP client to record external HTTP calls.
+ *   - All hostnames are stored in `hostname` with their count for the whole
+ *     test suite.
+ *   - Full request URLs are stores in `testRequests` and used to display
+ *   	 recorded requests for individual tests. 
+ *   - Requests to localhost are ignored.
+ */
 function patchHttpClient() {
   const _ClientRequest = http.ClientRequest;
 
