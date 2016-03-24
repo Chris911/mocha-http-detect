@@ -121,7 +121,7 @@ function getHref(httpOptions) {
  *   - All hostnames are stored in `hostname` with their count for the whole
  *     test suite.
  *   - Full request URLs are stores in `testRequests` and used to display
- *   	 recorded requests for individual tests. 
+ *   	 recorded requests for individual tests.
  *   - Requests to localhost are ignored.
  */
 function patchHttpClient() {

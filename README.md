@@ -6,7 +6,7 @@ Detect live HTTP requests in your test suite.
 
 ## Description
 
-mocha-live-detect allows developers to report live HTTP requests in test suites. As project grows, tests and dependencies become hard to manage and some test might unwillingly call external services slowing down tests and making them less reliable. By reporting live requests, this module helps identifying specific tests that might require stubbing calls external services.
+`mocha-live-detect` allows developers to report live HTTP requests in test suites. As a project grows, tests and dependencies can become difficult to manage. As a result, some tests might unwillingly call external services and in turn slow down tests and/or making them less reliable. By reporting live requests, this module identifies tests that might require stubbing calls to external services.
 
 ## Usage
 
