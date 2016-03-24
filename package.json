@@ -1,0 +1,39 @@
+{
+  "name": "mocha-live-detect",
+  "version": "0.0.1",
+  "description": "Live request detection for Mocha",
+  "main": "dist/index.js",
+  "scripts": {
+    "compile": "babel -d dist src",
+    "lint": "eslint src",
+    "test": "npm run lint && mocha --compilers js:babel-core/register --recursive"
+  },
+  "keywords": [
+    "mocha",
+    "live",
+    "detect"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chris911/mocha-live-detect.git"
+  },
+  "author": "Christophe Naud-Dulude",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Chris911/mocha-live-detect/issues"
+  },
+  "homepage": "https://github.com/Chris911/mocha-live-detect",
+  "dependencies": {
+    "chalk": "1.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.6.5",
+    "babel-core": "^6.7.2",
+    "babel-preset-es2015": "^6.6.0",
+    "chai": "^3.5.0",
+    "eslint": "2.3.0",
+    "eslint-config-airbnb": "6.1.0",
+    "mocha": "^2.4.5",
+    "request-promise": "^2.0.1"
+  }
+}
