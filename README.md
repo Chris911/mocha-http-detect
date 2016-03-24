@@ -1,4 +1,4 @@
-# mocha-http-detect [![Build Status](https://travis-ci.org/Chris911/mocha-http-detect.svg?branch=master)](https://travis-ci.org/Chris911/mocha-http-detect)
+# mocha-http-detect [![Build Status](https://travis-ci.org/Chris911/mocha-http-detect.svg?branch=master)](https://travis-ci.org/Chris911/mocha-http-detect) [![npm version](https://badge.fury.io/js/mocha-http-detect.svg)](https://badge.fury.io/js/mocha-http-detect)
 
 Detect live HTTP requests in your test suite.
 
