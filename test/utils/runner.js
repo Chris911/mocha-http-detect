@@ -1,3 +1,31 @@
+const spawn = require('child_process').spawn;
+
+/*
+ * test runner helper
+ */
+function runMocha(args, fn) {
+  const child = spawn('./node_modules/.bin/mocha', args.split(' '));
+
+  const result = {
+    out: '',
+    err: '',
+    code: null,
+  };
+
+  child.stdout.on('data', function (data) {
+    result.out += data;
+  });
+
+  child.stderr.on('data', function (data) {
+    result.out += data;
+  });
+
+  child.on('close', function (code) {
+    result.code = code;
+    fn(result);
+  });
+}
+
 /*
  * mocha test helper
  * Source: https://github.com/rstacruz/mocha-clean/blob/master/test/support/mocha.js
@@ -17,33 +45,6 @@ function mocha(args) {
       global.res = result;
       next();
     });
-  });
-}
-
-/*
- * test runner helper
- */
-function runMocha(args, fn) {
-  var spawn = require('child_process').spawn;
-  var child = spawn('./node_modules/.bin/mocha', args.split(' '));
-
-  var result = {
-    out: '',
-    err: '',
-    code: null
-  };
-
-  child.stdout.on('data', function (data) {
-    result.out += data;
-  });
-
-  child.stderr.on('data', function (data) {
-    result.out += data;
-  });
-
-  child.on('close', function (code) {
-    result.code = code;
-    fn(result);
   });
 }
 

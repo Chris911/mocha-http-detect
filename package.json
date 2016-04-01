@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "compile": "babel -d dist src",
-    "lint": "eslint src",
+    "lint": "eslint .",
     "test": "npm run lint && mocha --compilers js:babel-core/register --recursive",
     "test:ci": "npm run compile && npm test"
   },

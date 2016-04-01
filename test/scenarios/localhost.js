@@ -1,7 +1,7 @@
-var assert = require('chai').assert;
-var request = require('request-promise');
+const assert = require('chai').assert;
+const request = require('request-promise');
 
-var server = require('../utils/server');
+const server = require('../utils/server');
 
 
 describe('live requests', function() {
@@ -15,7 +15,7 @@ describe('live requests', function() {
 
   it('requests localhost', function(done) {
     return request('http://localhost:8585')
-      .then(function(html) {
+      .then(function() {
         assert(true);
         done();
       });
