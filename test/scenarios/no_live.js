@@ -1,4 +1,4 @@
-var assert = require('chai').assert;
+const assert = require('chai').assert;
 
 describe('no live requests', function() {
   it('passes', function() {
